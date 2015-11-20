@@ -4,7 +4,7 @@ print(g(4))
 
 a = lambda: 'example'
 
-print(a)
+print(a())
 
 b = lambda x, y=3: x + y
 
