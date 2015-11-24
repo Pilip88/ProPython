@@ -57,11 +57,18 @@ class ASCIIValidator(InputValidator):
 class NoDigitValidator(InputValidator):
 	"""
 	Validate that the input doesn't contain any digit.
+
+	>>> v = NoDigitValidator()
+	>>> v.validate('some input')
+	>>> v.validate('s0m3 1nput')
+	Traceback (most recent call last):
+		...
+	ValueError: Value of type 'int' or 'float' found in input.
 	"""
 	def validate(self, input):
 		for char in input:
 			if char.isdigit():
-				raise ValueError
+				raise ValueError('Value of type \'int\' or \'float\' found in input')
 
 
 def is_valid(input):
